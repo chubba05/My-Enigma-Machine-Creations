@@ -184,7 +184,11 @@ function func_handle_stepping(rotor1_notch, rotor2_notch, fast_pos, medium_pos, 
     medium_pos += 1;
     slow_pos += 1;
   }
-
+  
+  // Modulo 26 the rotor position
+  fast_pos = fast_pos % 26
+  medium_pos = medium_pos % 26
+  slow_pos = slow_pos % 26
   return [fast_pos, medium_pos, slow_pos];
 }
 
