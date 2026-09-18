@@ -171,20 +171,20 @@ function func_handle_stepping(rotor1_notch, rotor2_notch, fast_pos, medium_pos, 
     turn_rotor3 = true;
   }
 
-  // Turn rotor 1
-  fast_pos += 1;
-
-  // If the first rotor notch is in place turn rotor 2
-  if (turn_rotor2 == true) {
-    medium_pos += 1;
-  }
-
   // If the second rotor notch is in place turn rotor 2 and rotor 3
   if (turn_rotor3 == true) {
     medium_pos += 1;
     slow_pos += 1;
   }
   
+  // If the first rotor notch is in place and second rotor notch is not in place turn rotor 2
+  if (turn_rotor2 == true && turn_rotor3 == false) {
+    medium_pos += 1;
+  }
+
+  // Turn rotor 1
+  fast_pos += 1;
+
   // Modulo 26 the rotor position
   fast_pos = fast_pos % 26
   medium_pos = medium_pos % 26
